@@ -287,7 +287,7 @@
 
   $.fn.bindMobileEvents = function () {
     $(this).on('touchstart touchmove touchend touchcancel', function (event) {
-      var touches = (event.changedTouches || event.originalEvent.targetTouches),
+      var touches = (event.changedTouches || event.originalEvent.targetTouches.length>0?event.originalEvent.targetTouches:(event.originalEvent.changedTouches.length>0?event.originalEvent.changedTouches:[]) ),
           first = touches[0],
           type = '';
 
